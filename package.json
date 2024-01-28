@@ -1,0 +1,18 @@
+{
+    "name": "com.acme-studio.textureseditor",
+    "version": "1.0.0",
+    "displayName": "Textures Editor",
+    "description": "Small tool about textures",
+    "unity": "2022.3",
+    "unityRelease": "",
+    "documentationUrl": "",
+    "changelogUrl": "",
+    "licensesUrl": "",
+    "dependencies": "",
+    "keywords": "",
+    "author": {
+        "name": "Acme-Studio",
+        "email": "badbonesproductions@icloud.com",
+        "url": "https://www.badbonesproductions.com"
+    }
+}

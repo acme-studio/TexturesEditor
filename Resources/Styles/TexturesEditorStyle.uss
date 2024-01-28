@@ -1,0 +1,57 @@
+#Title {
+    -unity-font: url('project://database/Assets/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=b9db73ceab40343538d6ea78cf523ec5&type=3#NotInter-Regular');
+    background-color: rgb(209, 152, 27);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    -unity-text-align: middle-center;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    align-self: auto;
+    font-size: 27px;
+}
+
+#Texture-Option {
+    height: auto;
+    -unity-text-align: middle-left;
+    font-size: 15px;
+    background-color: rgb(102, 102, 102);
+    -unity-font-style: normal;
+    visibility: visible;
+    margin-top: 10px;
+}
+
+#Width-Field > Label {
+    max-width: 42px;
+    min-width: 42px;
+    -unity-text-align: middle-left;
+}
+
+#Height-Field > Label {
+    max-width: 42px;
+    min-width: 42px;
+    flex-grow: 0;
+    -unity-text-align: middle-left;
+}
+
+#Width-Field > #unity-text-input {
+    width: 60px;
+}
+
+#Height-Field > #unity-text-input {
+    width: 60px;
+}
+
+#Create-Texture-Button {
+    flex-grow: 1;
+}
+
+#Texture-Field > Label {
+    width: 100%;
+    align-items: center;
+    -unity-text-align: upper-center;
+    -unity-font-style: bold;
+    margin-bottom: 5px;
+}

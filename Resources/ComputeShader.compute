@@ -1,0 +1,128 @@
+#pragma kernel ApplyGradient
+// #pragma kernel Vertical
+// #pragma kernel Radial
+
+
+
+Texture2D<float4> InputTexture;
+
+// Gradient
+Texture2D<float4> HorGradient;
+Texture2D<float4> VerGradient;
+
+int Radius;
+int TexWidth;
+int TexHeight;
+
+float2 LBCorner;
+float2 LTCorner;
+float2 RTCorner;
+float2 RBCorner;
+
+
+// Resulting texture
+RWTexture2D<float4> ResultTexture;
+
+[numthreads(8, 8, 1)]
+void ApplyGradient (uint3 id : SV_DispatchThreadID)
+{
+    //Gradient Indexes
+    uint3 hdG;
+    hdG.x = id.x;
+    hdG.y = 0;
+
+    uint3 vdG;
+    vdG.x = id.y;
+    vdG.y = 0;
+
+    // Corners by radius
+    LBCorner = float2(Radius, Radius);
+    LTCorner = float2(Radius, TexHeight - 1 - Radius);
+    RTCorner = float2(TexWidth - 1 - Radius, TexHeight - 1 - Radius);
+    RBCorner = float2(TexWidth - 1 - Radius, Radius);
+
+    float2 targetCorner = float2(-1,-1);
+
+    if ((int)id.x <= LBCorner.x && (int)id.y <= LBCorner.y)
+    targetCorner = LBCorner;
+    if ((int)id.x <= LTCorner.x && (int)id.y >= LTCorner.y)
+    targetCorner = LTCorner;
+    if ((int)id.x >= RTCorner.x && (int)id.y >= RTCorner.y)
+    targetCorner = RTCorner;
+    if ((int)id.x >= RBCorner.x && (int)id.y <= RBCorner.y)
+    targetCorner = RBCorner;
+
+
+    // Get the color from the input texture
+    float4 inputColor = InputTexture[id.xy];
+
+    // Sample the gradient at the same coordinates
+    float4 hGradient = HorGradient[hdG.xy];
+    float4 vGradient = VerGradient[vdG.xy];
+
+    float alpha = 1;
+
+    if (targetCorner.x != -1)
+    {
+        float distanceToCenter = distance(float2(id.xy), targetCorner);
+        alpha = 1.0 - smoothstep(Radius, Radius + 1.0, distanceToCenter);
+    }
+
+    // Modify the input color based on the gradient
+    float4 outputColor = (inputColor * hGradient * vGradient * alpha);
+
+    // Write the result to the output texture
+    ResultTexture[id.xy] = outputColor;
+}
+
+// [numthreads(8, 8, 1)]
+// void Vertical (uint3 id : SV_DispatchThreadID)
+// {
+//     uint3 idG;
+//     idG.x = id.y;
+//     idG.y = 0;
+
+//     // Get the color from the input texture
+//     float4 inputColor = InputTexture[id.xy];
+
+//     // Sample the gradient at the same coordinates
+//     float4 gradient = Gradient[idG.xy];
+
+//     // Modify the input color based on the gradient
+//     float4 outputColor = inputColor * gradient;
+
+//     // Write the result to the output texture
+//     ResultTexture[id.xy] = outputColor;
+// }
+
+// [numthreads(8, 8, 1)]
+// void Radial (uint3 id : SV_DispatchThreadID)
+// {
+//     // Set y-coordinate to 0 explicitly
+//     id.y = 0;
+
+//     // Get the color from the input texture
+//     float4 inputColor = InputTexture[id.xy];
+
+//     // Calculate the center of the texture
+//     float2 center = float2(texWidth / 2.0, texHeight / 2.0);
+
+//     // Calculate the distance from the current pixel to the center
+//     float distanceToCenter = distance(float2(id.xy), center);
+
+//     // Define the radius of the radial gradient
+//     float radius = min(texWidth, texHeight) / 2.0;
+
+//     // Calculate the gradient based on the radial distance
+//     float gradientValue = smoothstep(radius, radius + 5.0, radius - distanceToCenter);
+
+//     // Sample the gradient using the gradientValue
+//     float4 gradient = float4(gradientValue, gradientValue, gradientValue, 1.0);
+
+//     // Modify the input color based on the radial gradient
+//     float4 outputColor = inputColor * gradient;
+
+//     // Write the result to the output texture
+//     ResultTexture[id.xy] = outputColor;
+// }
+

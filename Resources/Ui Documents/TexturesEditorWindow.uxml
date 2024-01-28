@@ -1,0 +1,27 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <Style src="project://database/Packages/com.acme-studio.textureseditor/Resources/Styles/TexturesEditorStyle.uss?fileID=7433441132597879392&amp;guid=2588aa4f9744f48cd93589960d1c4327&amp;type=3#TexturesEditorStyle" />
+    <ui:Label tabindex="-1" text="TEXTURES EDITOR" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Title" />
+    <ui:DropdownField label="Texture" index="0" choices="Create New Texture, Load Texture" name="Texture-Option" />
+    <ui:VisualElement name="VisualElement" style="flex-grow: 1; flex-direction: row; height: auto; align-self: center; flex-shrink: 1; justify-content: flex-start; align-items: auto; margin-top: 20px;">
+        <ui:VisualElement name="OptionsContainer" style="justify-content: flex-start; height: 100%; width: 50%; margin-right: 0; padding-right: 5px;">
+            <uie:ObjectField label="Texture" name="Texture-Field" type="UnityEngine.Texture2D, UnityEngine.CoreModule" style="display: flex; visibility: visible; flex-direction: column; width: 100%; align-items: auto; align-self: center;" />
+            <ui:VisualElement name="Texture-Values" style="flex-grow: 0; flex-direction: row; flex-shrink: 1; display: flex; visibility: visible;">
+                <ui:IntegerField label="Width" name="Width-Field" value="100" style="width: 50%;" />
+                <ui:IntegerField label="Height" value="100" name="Height-Field" style="flex-grow: 0; flex-shrink: 1; width: 50%;" />
+            </ui:VisualElement>
+            <ui:Button text="Create" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Create-Texture-Button" style="margin-top: 10px;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="VisualElement" style="flex-grow: 1; align-items: stretch; height: 100%; width: 50%; padding-left: 5px;">
+            <uie:GradientField label="Horizontal Gradient" name="Horizontal-Gradient-Field" style="padding-top: 3px; margin-top: 0;" />
+            <uie:GradientField label="Vertical Gradient" name="Vertical-Gradient-Field" style="padding-top: 3px; margin-top: 0;" />
+            <ui:SliderInt picking-mode="Ignore" label="Corners" value="42" high-value="1" name="Radius" show-input-field="true" style="margin-top: 5px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="Preview-Area" style="flex-grow: 1; width: 500px; height: 500px; margin-top: 10px;">
+        <ui:VisualElement name="PreviewPanel" style="flex-grow: 1; background-image: resource(&apos;Transparency&apos;); align-self: auto; align-items: center; justify-content: center; margin-top: 10px; width: 100%; height: 100%;">
+            <ui:VisualElement name="Preview-Element" style="margin-top: 18px; margin-right: 18px; margin-bottom: 18px; margin-left: 18px; align-self: center; justify-content: center; align-items: center; flex-shrink: 1; display: none; visibility: visible;" />
+            <ui:Label tabindex="-1" text="Unable to Load Texture&#10;Make sure your asset is &quot;readable&quot;" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Alert-Banner" style="font-size: 20px; color: rgb(255, 0, 0); -unity-text-align: middle-center; background-color: rgb(19, 19, 19); padding-right: 0; padding-left: 0; flex-shrink: 1; flex-grow: 1; width: 100%; height: 100%;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:Button text="Export Texture" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Export-Button" style="flex-grow: 1; flex-shrink: 1; align-items: auto; align-self: auto;" />
+</ui:UXML>
