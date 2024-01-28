@@ -25,7 +25,7 @@ namespace TexturesEditor
         private string outputName;
 
 
-        [MenuItem("Acme Studio/TexturesEditor")]
+        [MenuItem("Acme Studio/Textures Editor")]
         private static void ShowWindow()
         {
             TexturesEditor texEditorWnd = GetWindow<TexturesEditor>();
