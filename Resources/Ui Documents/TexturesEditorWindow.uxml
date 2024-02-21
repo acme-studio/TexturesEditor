@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
-    <Style src="project://database/Packages/com.acme-studio.textureseditor/Resources/Styles/TexturesEditorStyle.uss?fileID=7433441132597879392&amp;guid=2588aa4f9744f48cd93589960d1c4327&amp;type=3#TexturesEditorStyle" />
-    <ui:Label tabindex="-1" text="TEXTURES EDITOR" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Title" />
+    <Style src="project://database/Assets/TexturesEditor/Resources/Styles/TexturesEditorStyle.uss?fileID=7433441132597879392&amp;guid=2588aa4f9744f48cd93589960d1c4327&amp;type=3#TexturesEditorStyle" />
+    <ui:Label tabindex="-1" text="TEXTURES EDITOR" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Title" style="-unity-font: initial;" />
     <ui:DropdownField label="Texture" index="0" choices="Create New Texture, Load Texture" name="Texture-Option" />
     <ui:VisualElement name="VisualElement" style="flex-grow: 1; flex-direction: row; height: auto; align-self: center; flex-shrink: 1; justify-content: flex-start; align-items: auto; margin-top: 20px;">
         <ui:VisualElement name="OptionsContainer" style="justify-content: flex-start; height: 100%; width: 50%; margin-right: 0; padding-right: 5px;">

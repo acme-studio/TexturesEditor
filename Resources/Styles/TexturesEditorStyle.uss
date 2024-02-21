@@ -1,5 +1,5 @@
 #Title {
-    -unity-font: url('project://database/Assets/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=b9db73ceab40343538d6ea78cf523ec5&type=3#NotInter-Regular');
+    -unity-font: initial;
     background-color: rgb(209, 152, 27);
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
