@@ -1,15 +1,17 @@
 {
     "name": "com.acme-studio.textureseditor",
-    "version": "1.0.0",
     "displayName": "Textures Editor",
-    "description": "Small tool about textures",
+    "version": "1.0.1",
     "unity": "2022.3",
-    "unityRelease": "",
-    "documentationUrl": "",
-    "changelogUrl": "",
-    "licensesUrl": "",
-    "dependencies": "",
-    "keywords": "",
+    "description": "Simple textures editor",
+    "keywords": [
+        "Drawer",
+        "ScriptableObjects Expandable Drawer"
+    ],
+    "repository": {
+        "url": "https://github.com/acme-studio/TexturesEditor.git",
+        "type": "git"
+    },
     "author": {
         "name": "Acme-Studio",
         "email": "info@acme-studio.com",
